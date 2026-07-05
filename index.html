@@ -4,7 +4,6 @@
     <meta name="google-site-verification" content="puDGakskvmrw7HPTZZYQJaKY7KiPP0rJT-koJyDcyag" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-   
     
     <!-- SEO Optimization for "Nex Match" & "Football World Cup" -->
     <title>Nex Match ☄️</title>
@@ -25,7 +24,7 @@
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "Nex Match",
-      "url": "https://nexmatches.vercel.app/",
+      "url": "https://nexmatch.vercel.app/",
       "potentialAction": {
         "@type": "SearchAction",
         "target": "https://nexmatch.vercel.app/?q={search_term_string}",
@@ -36,6 +35,9 @@
     </script>
 
     <style>
+        /* ==========================================================
+           ১. ROOT VARIABLES & THEMES (ওয়েবসাইটের কালার এবং থিম)
+           ========================================================== */
         :root {
             --bg-deep: #030611;
             --surface-card: #080e22;
@@ -50,10 +52,10 @@
         }
 
         .light-theme {
-            --bg-deep: #f1f4fa;
+            --bg-deep: #ffffff;
             --surface-card: #ffffff;
             --surface-nav: rgba(255, 255, 255, 0.97);
-            --neon-accent: #0052cc;
+            --neon-accent: #FFD700;
             --neon-pink: #e60055;
             --neon-gold: #d48800;
             --text-primary: #0e121f;
@@ -62,6 +64,9 @@
             --border-glow: rgba(0, 82, 204, 0.12);
         }
 
+        /* ==========================================================
+           ২. GLOBAL RESET & BODY (বেসিক পেজ সেটআপ এবং ফন্ট)
+           ========================================================== */
         * {
             margin: 0;
             padding: 0;
@@ -79,10 +84,18 @@
             display: flex;
             flex-direction: column;
             overflow: hidden;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, color 0.3s;
         }
 
-        /* 3D Core Splash Engine */
+        /* Focus styles for TV Remote */
+        :focus {
+            outline: 2px solid var(--neon-accent) !important;
+            outline-offset: 2px;
+        }
+
+        /* ==========================================================
+           ৩. SPLASH SCREEN (ওয়েবসাইটে ঢোকার সময় লোডিং এনিমেশন)
+           ========================================================== */
         #sz-splash-viewport {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -123,7 +136,9 @@
             50% { opacity: 1; transform: translate3d(0,-5px,0); }
         }
 
-        /* FIXED CANOPY FRAMEWORK */
+        /* ==========================================================
+           ৪. HEADER & NAVIGATION (উপরের মেনুবার, লোগো এবং সার্চ)
+           ========================================================== */
         .sz-pinned-canopy {
             background-color: var(--surface-nav);
             backdrop-filter: blur(25px);
@@ -132,14 +147,15 @@
             z-index: 999;
             box-shadow: 0 4px 30px rgba(0,0,0,0.4);
             border-bottom: 1px solid var(--border-glow);
+            transition: background-color 0.3s;
         }
 
         .sz-header-gate {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 14px 16px;
-            max-width: 1000px;
+            padding: 2px 4px;
+            max-width: 1200px;
             margin: 0 auto;
             width: 100%;
         }
@@ -173,90 +189,6 @@
         }
         .sz-matrix-btn:active { transform: scale(0.85); }
 
-        /* Categories Carousel with Logo Badges */
-        .sz-carousel-sports {
-            display: flex;
-            overflow-x: auto;
-            white-space: nowrap;
-            padding: 10px 16px;
-            gap: 10px;
-            scrollbar-width: none;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        .sz-carousel-sports::-webkit-scrollbar { display: none; }
-
-        .sz-sport-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(255,255,255,0.04);
-            color: var(--text-primary);
-            padding: 9px 18px;
-            border-radius: 25px;
-            font-size: 13px;
-            font-weight: 700;
-            cursor: pointer;
-            border: 1px solid rgba(255,255,255,0.02);
-            transition: all 0.2s;
-        }
-        .sz-sport-pill.active {
-            background: linear-gradient(135deg, var(--neon-accent), #00a8ff);
-            color: #000000;
-            font-weight: 800;
-            box-shadow: 0 0 15px rgba(0, 240, 255, 0.25);
-        }
-
-        /* Count Badge Styles */
-        .sz-count-badge {
-            background: rgba(255, 255, 255, 0.15);
-            color: var(--text-primary);
-            padding: 2px 7px;
-            border-radius: 12px;
-            font-size: 11px;
-            font-weight: 800;
-            margin-left: 4px;
-            transition: all 0.2s;
-        }
-        .light-theme .sz-count-badge {
-            background: rgba(0, 0, 0, 0.1);
-            color: var(--text-primary);
-        }
-        .sz-sport-pill.active .sz-count-badge {
-            background: rgba(0, 0, 0, 0.4);
-            color: #ffffff;
-        }
-        .sz-status-pill.active .sz-count-badge {
-            background: var(--neon-accent);
-            color: #000000;
-        }
-
-        .sz-matrix-status {
-            display: flex;
-            padding: 4px 16px 14px 16px;
-            gap: 8px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .sz-status-pill {
-            background: rgba(255,255,255,0.02);
-            color: var(--text-secondary);
-            padding: 7px 14px;
-            border-radius: 8px;
-            font-size: 12px;
-            font-weight: 700;
-            cursor: pointer;
-            border: 1px solid rgba(255,255,255,0.03);
-            display: flex;
-            align-items: center;
-        }
-        .sz-status-pill.active {
-            background: rgba(255,255,255,0.1);
-            color: var(--text-primary);
-            border-color: var(--text-secondary);
-        }
-
         .sz-search-deck {
             display: none;
             padding: 12px 16px;
@@ -265,167 +197,311 @@
         }
         .sz-search-field {
             width: 100%;
-            max-width: 968px;
+            max-width: 1168px;
             margin: 0 auto;
             display: block;
             padding: 12px;
             border-radius: 10px;
-            background: rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(255,255,255,0.06);
-            color: #ffffff;
+            background: rgba(128, 128, 128, 0.1);
+            border: 1px solid rgba(128,128,128,0.2);
+            color: var(--text-primary);
             outline: none;
         }
 
-        /* MAIN REGION SCROLLER */
+        /* ==========================================================
+           ৫. MAIN CONTENT WRAPPER (মূল কন্টেন্ট এরিয়া এবং স্ক্রল)
+           ========================================================== */
+        .sz-content-wrapper {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
         .sz-scroll-workspace {
             flex: 1;
             overflow-y: auto;
-            padding: 16px;
-            padding-bottom: 40px;
+            padding: 0 0 40px 0;
             scrollbar-width: thin;
             -webkit-overflow-scrolling: touch;
+            display: block;
         }
 
-        /* SINGLE COLUMN FULL WIDTH GRID SYSTEM FOR ALL DEVICES */
-        .sz-matches-grid {
+        /* ==========================================================
+           ৬. CATEGORY CAROUSEL (খেলার ক্যাটাগরি স্লাইডার - Football, Cricket)
+           ========================================================== */
+        .sz-carousel-sports {
             display: flex;
-            flex-direction: column;
-            gap: 16px;
-            width: 100%;
-            max-width: 1000px; /* Keeps it readable on ultra-wide screens while acting like mobile */
+            overflow-x: auto;
+            white-space: nowrap;
+            padding: 1px 1px 4px 1px;
+            gap: 2px;
+            scrollbar-width: none;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .sz-carousel-sports::-webkit-scrollbar { display: none; }
+
+        .sz-sport-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 2px;
+            background: rgba(128,128,128,0.1);
+            color: var(--text-primary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            border: 2px solid rgba(128,128,128,0.2);
+            transition: all 0.2s;
+        }
+        .sz-sport-pill.active {
+            background: linear-gradient(135deg, var(--neon-accent), #00a8ff);
+            color: #ffffff;
+            font-weight: 800;
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.25);
+            border: none;
+        }
+
+        /* Count Badge Styles */
+        .sz-count-badge {
+            background: rgba(128, 128, 128, 0.2);
+            color: var(--text-primary);
+            padding: 2px 10px;
+            border-radius: 2px;
+            font-size: 11px;
+            font-weight: 800;
+            margin-left: 4px;
+            transition: all 0.2s;
+        }
+        .sz-sport-pill.active .sz-count-badge {
+            background: rgba(0, 0, 0, 0.3);
+            color: #ffffff;
+        }
+        .sz-status-pill.active .sz-count-badge {
+            background: var(--neon-accent);
+            color: #000000;
+        }
+
+        /* ==========================================================
+           ৭. STATUS PILLS (লাইভ, আপকামিং, এন্ডেড বাটন)
+           ========================================================== */
+        .sz-matrix-status {
+            display: flex;
+            padding: 4px 6px 4px 6px;
+            gap: 5px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
-        /* Premium Match Card Layout */
+        .sz-status-pill {
+            background: rgba(128,128,128,0.05);
+            color: var(--text-secondary);
+            padding: 0px 3px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            border: 1px solid rgba(128,128,128,0.1);
+            display: flex;
+            align-items: center;
+        }
+        .sz-status-pill.active {
+            background: rgba(128,128,128,0.15);
+            color: var(--text-primary);
+            border-color: var(--text-secondary);
+        }
+
+        /* ==========================================================
+           ৮. MATCH CARDS GRID (ম্যাচের কার্ডগুলোর ডিজাইন)
+           ========================================================== */
+        .sz-matches-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
+            gap: 1.5px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px; 
+        }
+
         .sz-match-card {
             background-color: var(--surface-card);
-            border-radius: 16px;
-            padding: 18px 18px 26px 18px;
+            border-radius: 9px;
+            padding: 5px 6px 7px 8px;
             position: relative;
             overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.02);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            border: 0.5px solid var(--border-glow);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
             cursor: pointer;
-            transition: transform 0.2s;
+            transition: all 0.2s;
             display: flex;
             flex-direction: column;
             width: 100%;
         }
-        .sz-match-card:hover {
-            transform: translateY(-3px);
-            border-color: rgba(0, 240, 255, 0.15);
+        .sz-match-card:hover, .sz-match-card:focus {
+            transform: translateY(-2px);
+            border-color: var(--neon-accent);
+            outline: none;
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
         }
 
         .sz-card-topline {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
+            align-items: center;
             font-size: 11px;
             color: var(--text-secondary);
             text-transform: uppercase;
-            margin-bottom: 14px;
+            margin-bottom: 10px;
             font-weight: 800;
+            letter-spacing: 0.5px;
         }
 
-        .sz-badge-tag {
-            padding: 3px 8px;
-            border-radius: 6px;
-            font-size: 10px;
-            font-weight: 800;
+        .sz-team-alignment { 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
         }
-        .sz-tag-live { background: var(--live-pulse); color: #fff; animation: szLivePulse 1s infinite alternate; }
-        .sz-tag-upcoming { background: #2563eb; color: #fff; }
-        .sz-tag-ended { background: #4b5563; color: #fff; }
-
-        @keyframes szLivePulse { 0% { opacity: 0.7; } 100% { opacity: 1; } }
-
-        .sz-team-alignment { display: flex; align-items: center; justify-content: space-between; }
-        .sz-team-node { flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px; width: 40%; }
-        .sz-asset-logo { width: 55px; height: 55px; object-fit: contain; }
-
+        .sz-team-node { 
+            display: flex; 
+            align-items: center; 
+            gap: 8px; 
+            width: 38%; 
+        }
+        .sz-team-node.right-team {
+            flex-direction: row-reverse;
+            text-align: right;
+        }
+        .sz-asset-logo { width: 32px; height: 32px; object-fit: contain; }
         .sz-avatar-monogram {
-            width: 55px; height: 55px; border-radius: 50%;
+            width: 32px; height: 32px; border-radius: 50%;
+            font-size: 14px;
             background: linear-gradient(135deg, #161f38, #232f52);
             color: var(--neon-accent); display: flex; align-items: center;
-            justify-content: center; font-weight: 900; font-size: 20px;
-            border: 2px solid rgba(255,255,255,0.04);
+            justify-content: center; font-weight: 900;
+            border: 2px solid rgba(128,128,128,0.2);
         }
 
         .sz-team-title {
-            font-size: 13px; font-weight: 700; color: var(--text-primary);
-            display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
-            overflow: hidden; height: 36px; line-height: 1.4;
+            font-size: 12px; font-weight: 800; 
+            color: var(--text-primary);
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
         }
 
-        .sz-center-core { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 20%; }
-        .sz-vs-lbl { font-size: 14px; font-weight: 900; color: var(--text-secondary); font-style: italic; }
-
+        .sz-center-core { 
+            display: flex; flex-direction: column; align-items: center; justify-content: center; width: 24%; 
+        }
         .sz-lifecycle-chronometer {
-            font-size: 11px; font-weight: 800; color: var(--neon-accent);
-            margin-top: 8px; white-space: nowrap; background: rgba(0,0,0,0.3);
-            padding: 3px 8px; border-radius: 5px;
+            font-size: 11px; font-weight: 900; color: var(--neon-accent);
+            background: transparent; padding: 0; margin: 0; text-align: center;
         }
-
-        /* BANGLADESH TIME WRAPPER */
         .sz-local-time-wrap {
-            text-align: center;
-            font-size: 11px;
+            text-align: center; font-size: 9px; font-weight: 600; 
             color: var(--text-secondary);
-            margin-top: 14px;
-            padding-top: 12px;
-            border-top: 1px dashed rgba(255,255,255,0.08);
-            font-weight: 600;
-            letter-spacing: 0.3px;
-        }
-        .light-theme .sz-local-time-wrap {
-            border-top: 1px dashed rgba(0,0,0,0.08);
-        }
-        .sz-local-time-wrap span {
-            color: var(--neon-gold);
-            font-weight: 800;
+            margin-top: 4px; padding-top: 0; border: none;
         }
 
+        /* ==========================================================
+           ৯. BADGES & ANIMATIONS (হট ম্যাচ, নেক্সট ম্যাচ এবং লাইভ টেক্সট এনিমেশন)
+           ========================================================== */
         .sz-conditional-badge {
             position: absolute; bottom: 0; left: 0;
             font-size: 9px; font-weight: 900; padding: 4px 12px;
             border-top-right-radius: 10px; letter-spacing: 0.5px;
+            z-index: 2;
+            text-transform: uppercase;
         }
-        .sz-badge-hot { background: linear-gradient(90deg, #ff6200, var(--neon-pink)); color: #fff; box-shadow: 0 0 10px rgba(255,0,124,0.3); }
-        .sz-badge-next { background: #1e293b; color: var(--text-secondary); }
+        
+        @keyframes szHotBadgeFloat {
+            0%, 100% { transform: translateY(0) scale(1); box-shadow: 0 4px 10px rgba(255, 0, 124, 0.4); }
+            50% { transform: translateY(-2px) scale(1.05); box-shadow: 0 8px 15px rgba(255, 0, 124, 0.7); }
+        }
+        @keyframes szHotBadgeShine {
+            0% { left: -100%; }
+            20%, 100% { left: 200%; }
+        }
 
-        /* THEATER THEME LAYER - FIXED TOP, SCROLLABLE BOTTOM */
-        #sz-theater-route {
+        .sz-badge-hot { 
+            background: linear-gradient(90deg, #ff3300, var(--neon-pink)); 
+            color: #fff; 
+            overflow: hidden;
+            animation: szHotBadgeFloat 2s infinite ease-in-out;
+        }
+        .sz-badge-hot::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%; width: 50%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+            transform: skewX(-20deg);
+            animation: szHotBadgeShine 3s infinite;
+        }
+        
+        .sz-badge-next { 
+            background: linear-gradient(90deg, #0052cc, #00f0ff); 
+            color: #fff; 
+        }
+
+        @keyframes szRedDotPulse {
+            0% { transform: scale(1); filter: drop-shadow(0 0 2px #ff0d4f); }
+            50% { transform: scale(1.4); filter: drop-shadow(0 0 8px #ff0d4f) drop-shadow(0 0 15px #ff007c); }
+            100% { transform: scale(1); filter: drop-shadow(0 0 2px #ff0d4f); }
+        }
+
+        .live-text-static {
+            color: #ff0d4f;
+            font-weight: 900;
+        }
+        .live-indicator-3d {
+            display: inline-block;
+            animation: szRedDotPulse 1s infinite ease-in-out;
+            margin: 0 3px;
+            font-size: 10px;
+        }
+        .timer-text {
+            color: var(--live-pulse);
+            font-weight: 800;
+        }
+
+        /* ==========================================================
+           ১০. THEATER MODE & VIDEO PLAYER (ভিডিও প্লেয়ার এবং ব্যাক বাটন)
+           ========================================================== */
+        #sz-theater-route, .sz-standalone-page {
             display: none;
-            position: fixed;
+            position: absolute; 
             top: 0; left: 0; width: 100%; height: 100%;
             background: var(--bg-deep);
             z-index: 1000;
             flex-direction: column;
-            overflow: hidden; /* Prevents the whole page from scrolling */
+            overflow: hidden;
         }
 
+        /* --- ভিডিও প্লেয়ারের উপরের ব্যাক বাটনের জায়গা (Padding কমানো হয়েছে) --- */
         .sz-theater-canopy {
-            padding: 14px; background: var(--surface-card);
-            border-bottom: 1px solid var(--border-glow); display: flex; align-items: center; 
-            flex-shrink: 0; /* Keeps it fixed */
+            padding: 2px 4px; /* আগে 14px ছিল, এখন 6px করে জায়গা ছোট করা হয়েছে */
+            background: var(--surface-card);
+            border-bottom: 0.2px solid var(--border-glow); 
+            display: flex; 
+            align-items: center; 
+            flex-shrink: 0;
         }
 
-        /* ----- UPDATED VIDEO PLAYER CSS FOR PC/TV ----- */
         .sz-cinema-viewport {
             width: 100%; 
-            max-width: 1000px; 
             margin: 0 auto; 
             background: #000000;
             position: relative; 
-            flex-shrink: 0; /* Keeps it fixed */
+            flex-shrink: 0;
             aspect-ratio: 16/9;
             box-shadow: 0 10px 20px rgba(0,0,0,0.5);
         }
         
-        /* Tablet & Small Desktop */
-        @media (min-width: 768px) {
+        @media (min-width: 468px) {
             .sz-cinema-viewport {
-                max-height: 45vh; /* Reduced height to show links */
-                max-width: calc(45vh * (16/9));
+                max-width: 450px;
                 margin-top: 15px;
                 margin-bottom: 10px;
                 border-radius: 8px;
@@ -433,22 +509,20 @@
             }
         }
 
-        /* TV & Large Monitors - Make player extremely small as requested */
         @media (min-width: 1024px) {
             .sz-cinema-viewport {
-                max-height: 35vh; /* একদম ক্ষুদ্র ছোট (Very Small) */
-                max-width: calc(35vh * (16/9));
-                margin-top: 20px;
-                margin-bottom: 15px;
+                max-width: 420px !important; 
+                height: auto !important;
+                aspect-ratio: 16/9;
+                margin: 15px auto;
                 border-radius: 12px;
-                box-shadow: 0 15px 50px rgba(0,0,0,0.8); /* Premium look */
+                box-shadow: 0 10px 30px rgba(0,0,0,0.8);
             }
         }
-        /* ----------------------------------------------- */
 
         .sz-cinema-viewport iframe { width: 100%; height: 100%; border: none; display: none; }
 
-        /* 3-Second Preplay Animation Framework */
+        /* Video Player Loader Animation */
         #sz-viewport-loader {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background: #04060f; display: flex; flex-direction: column;
@@ -479,62 +553,63 @@
             100% { transform: rotateX(0deg); opacity: 1; }
         }
 
-        /* FIXED RACK SYSTEM (Notice & Links) */
+        /* ==========================================================
+           ১১. STREAM LINKS & MARQUEE (ভিডিও লিংক এবং স্ক্রোলিং নোটিশ)
+           ========================================================== */
         .sz-pipeline-rack-fixed {
-            padding: 14px 16px; background: var(--surface-card);
+            padding: 1px 2px; background: var(--surface-card);
             border-bottom: 1px solid var(--border-glow); 
-            flex-shrink: 0; /* Keeps it fixed */
+            flex-shrink: 0;
             width: 100%;
         }
-        .sz-rack-lbl { font-size: 12px; font-weight: 800; color: var(--text-secondary); margin-bottom: 10px; text-transform: uppercase; max-width: 1000px; margin-left: auto; margin-right: auto; }
+        .sz-rack-lbl { font-size: 12px; font-weight: 800; color: var(--text-secondary); margin-bottom: 1px; text-transform: uppercase; max-width: 1200px; margin-left: auto; margin-right: auto; }
 
-        /* Moving Notice Marquee Ticker Framework */
         .sz-ticker-marquee {
-            width: 100%; max-width: 1000px; margin: 0 auto 12px auto; background: rgba(255, 170, 0, 0.06);
-            border: 1px solid rgba(255, 170, 0, 0.15); border-radius: 6px;
-            padding: 8px; overflow: hidden; white-space: nowrap;
+            width: 100%; max-width: 1200px; margin: 0 auto 12px auto; background: rgba(255, 170, 0, 0.06);
+            border: 1px solid rgba(255, 170, 0, 0.15); border-radius: 2px;
+            padding: 2px; overflow: hidden; white-space: nowrap;
         }
         .sz-marquee-text {
-            display: inline-block; font-size: 11px; font-weight: 700; color: #ffaa00;
+            display: inline-block; font-size: 16px; font-weight: 700; color: #ff0000;
             padding-left: 100%; 
-            animation: szMarqueeLoop 35s linear infinite;
+            animation: szMarqueeLoop 60s linear infinite;
         }
         @keyframes szMarqueeLoop {
             0% { transform: translate3d(0, 0, 0); }
             100% { transform: translate3d(-100%, 0, 0); }
         }
 
-        /* Horizontal Links Config */
         .sz-rack-btn-flow-horizontal {
-            display: flex; overflow-x: auto; white-space: nowrap; gap: 10px; padding-bottom: 4px;
-            scrollbar-width: thin; max-width: 1000px; margin: 0 auto;
+            display: flex; overflow-x: auto; white-space: nowrap; gap: 5px; padding-bottom: 10px;
+            scrollbar-width: thin; max-width: 1200px; margin: 0 auto;
         }
-        .sz-rack-btn-flow-horizontal::-webkit-scrollbar { height: 4px; }
-        .sz-rack-btn-flow-horizontal::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
+        .sz-rack-btn-flow-horizontal::-webkit-scrollbar { height: 2px; }
+        .sz-rack-btn-flow-horizontal::-webkit-scrollbar-thumb { background: rgba(128,128,128,0.3); border-radius: 2px; }
 
         .sz-transmission-trigger {
-            background: rgba(255,255,255,0.03); color: var(--text-primary);
-            border: 1px solid rgba(255,255,255,0.06); padding: 11px 16px;
-            border-radius: 10px; font-size: 12px; font-weight: 700; cursor: pointer; flex-shrink: 0;
+            background: rgba(128,128,128,0.1); color: var(--text-primary);
+            border: 1px solid rgba(128,128,128,0.2); padding: 5px 30px;
+            border-radius: 10px; font-size: 10px; font-weight: 700; cursor: pointer; flex-shrink: 0;
+            white-space: nowrap; display: inline-block;
         }
         .sz-transmission-trigger.active {
             background: var(--neon-accent); color: #000000; font-weight: 800; border-color: var(--neon-accent);
         }
 
-        /* SCROLLABLE RELATED MATCHES SECTION */
         .sz-theater-scrollable-content {
-            flex: 1; /* Takes up the remaining space below the fixed elements */
-            overflow-y: auto; /* ONLY this section will scroll */
-            padding: 16px;
-            padding-bottom: 60px;
+            flex: 1;
+            overflow-y: auto;
+            padding: 10px;
+            padding-bottom: 10px;
             -webkit-overflow-scrolling: touch;
         }
         .sz-theater-scrollable-content h4 {
-            max-width: 1000px; margin: 6px auto 14px auto; font-size:13px; color:var(--text-secondary); text-transform:uppercase; letter-spacing:0.5px;
+            max-width: 1200px; margin: 4px auto 16px auto; font-size:13px; color:var(--text-secondary); text-transform:uppercase; letter-spacing: 1px;
         }
 
-        /* LEGAL SCREENS CONFIG */
-        .sz-standalone-page { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--bg-deep); z-index: 2000; flex-direction: column; }
+        /* ==========================================================
+           ১২. LEGAL PAGES & MODAL (এবাউট, ডিসক্লেইমার এবং পপআপ মেনু)
+           ========================================================== */
         .sz-page-scroller { flex: 1; overflow-y: auto; padding: 26px 22px; max-width: 750px; margin: 0 auto; -webkit-overflow-scrolling: touch; }
         .sz-legal-title { font-size: 23px; font-weight: 900; color: var(--neon-accent); margin-bottom: 20px; border-bottom: 2px solid var(--border-glow); padding-bottom: 10px; display: flex; align-items: center; gap: 8px; }
         .sz-legal-para { font-size: 14px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 20px; text-align: justify; }
@@ -543,10 +618,12 @@
 
         #sz-compliance-sheet { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 5000; align-items: flex-end; }
         .sz-sheet-panel { width: 100%; background: var(--surface-card); border-top-left-radius: 22px; border-top-right-radius: 22px; padding: 24px; border-top: 1px solid var(--border-glow); }
-        .sz-sheet-row { padding: 16px; font-size: 15px; font-weight: 700; color: var(--text-primary); border-bottom: 1px solid rgba(255,255,255,0.04); cursor: pointer; }
+        .sz-sheet-row { padding: 16px; font-size: 15px; font-weight: 700; color: var(--text-primary); border-bottom: 1px solid rgba(128,128,128,0.2); cursor: pointer; }
         .sz-sheet-row:last-child { border: none; }
 
-        /* PLATFORM GLOBAL FOOTER SYSTEM */
+        /* ==========================================================
+           ১৩. FOOTER (নিচের ফুটার অংশ)
+           ========================================================== */
         .sz-platform-footer {
             background-color: var(--surface-card);
             border-top: 1px solid var(--border-glow);
@@ -567,101 +644,116 @@
         <div class="sz-splash-3d-text">NEX MATCH ☄️</div>
     </div>
 
+    <!-- HEADER (Always Visible & Fixed) -->
     <div class="sz-pinned-canopy">
         <header class="sz-header-gate">
-            <div class="sz-brand-logo" id="sz-root-reset-trigger">
+            <div class="sz-brand-logo" id="sz-root-reset-trigger" tabindex="0">
                 ⚡ Nex<span> Match ☄️</span>
             </div>
             <div class="sz-control-matrix">
-                <button class="sz-matrix-btn" id="sz-search-toggle">🔍</button>
-                <button class="sz-matrix-btn" id="sz-theme-toggle">🌙</button>
-                <button class="sz-matrix-btn" id="sz-compliance-toggle">⋮</button>
+                <button class="sz-matrix-btn" id="sz-search-toggle" tabindex="0">🔍</button>
+                <button class="sz-matrix-btn" id="sz-theme-toggle" tabindex="0">🌙</button>
+                <button class="sz-matrix-btn" id="sz-compliance-toggle" tabindex="0">⋮</button>
             </div>
         </header>
 
         <div class="sz-search-deck" id="sz-search-wrap">
-            <input type="text" class="sz-search-field" id="sz-search-node" placeholder="Search...">
-        </div>
-
-        <div class="sz-carousel-sports" id="sz-categories-carousel">
-            <!-- Categories will be injected here dynamically -->
-        </div>
-
-        <div class="sz-matrix-status">
-            <div class="sz-status-pill active" data-lifecycle="all">All Feeds <span class="sz-count-badge" id="sz-count-lifecycle-all">0</span></div>
-            <div class="sz-status-pill" data-lifecycle="live">🔴 Live Now <span class="sz-count-badge" id="sz-count-lifecycle-live">0</span></div>
-            <div class="sz-status-pill" data-lifecycle="upcoming">⏳ Upcoming <span class="sz-count-badge" id="sz-count-lifecycle-upcoming">0</span></div>
-            <div class="sz-status-pill" data-lifecycle="ended">✓ Ended <span class="sz-count-badge" id="sz-count-lifecycle-ended">0</span></div>
+            <input type="text" class="sz-search-field" id="sz-search-node" placeholder="Search..." tabindex="0">
         </div>
     </div>
 
-    <main class="sz-scroll-workspace">
-        <div class="sz-matches-grid" id="sz-primary-render-grid">
-            </div>
-    </main>
-
-    <div id="sz-theater-route">
-        <div class="sz-theater-canopy">
-            <button class="sz-matrix-btn" id="sz-exit-theater" style="font-size:15px; font-weight:800; color:var(--text-primary);">← Back</button>
-        </div>
+    <!-- CONTENT WRAPPER (Keeps Header & Footer Fixed) -->
+    <div class="sz-content-wrapper">
         
-        <div class="sz-cinema-viewport">
-            <div id="sz-viewport-loader">
-                <div class="sz-preplay-logo-3d">⚡</div>
-                <div class="sz-preplay-brand-name">NEX MATCH ☄️</div>
-            </div>
-            <iframe id="sz-global-video-frame" allowfullscreen="true" allow="autoplay; encrypted-media"></iframe>
-        </div>
-
-        <div class="sz-pipeline-rack-fixed">
-            <div class="sz-ticker-marquee">
-                <div class="sz-marquee-text">আমাদের ওয়েবসাইট আপডেট চলতেছে যেকোনো লিংক থেকে লাইভ ম্যাচ প্লে হতে 5 থেকে 10 সেকেন্ড অপেক্ষা করুন একবার প্লে হয়ে গেলে কোন বাফারিং ছাড়া প্লে হবে এটি আমাদের ওয়েবসাইটের রুলস এর জন্য এরকম 5 থেকে 10 সেকেন্ড ওয়েট করতে হয় এর জন্য আন্তরিকভাবে দুঃখিত ⚠️</div>
-            </div>
-
-            <div class="sz-rack-lbl"> Stream Links:</div>
-            <div class="sz-rack-btn-flow-horizontal" id="sz-stream-sources-box"></div>
-        </div>
-
-        <div class="sz-theater-scrollable-content">
-            <h4>More Events From This Category 🗂️</h4>
-            <div class="sz-matches-grid" id="sz-related-category-feed"></div>
-        </div>
-    </div>
-
-    <div class="sz-standalone-page" id="sz-page-about">
-        <div class="sz-theater-canopy"><button class="sz-matrix-btn sz-close-page">← Dismiss Screen</button></div>
-        <div class="sz-page-scroller">
-            <h2 class="sz-legal-title">⚡ Platform Architecture & Technology Infrastructure</h2>
-            <p class="sz-legal-para">Nex Match operates as an automated metadata discovery network system. Our software framework specialize entirely in algorithmic query indexing, dynamic structure parsing, and client-side UI optimization of sports tracking streams globally available across international public networks.</p>
-            <div class="sz-highlight-shield">
-                CRITICAL TECHNICAL STATUS: This platform is a purely algorithmic client application layer. We do not own, maintain, operate, rent, or lease any external streaming servers, cloud streaming architecture, or digital video distribution nodes. Our systems interact strictly with public API architectures to format data for human visualization.
-            </div>
-            <p class="sz-legal-para">The interface coordinates data streams programmatically requested by individual client requests. Under zero legal interpretation can Nex Match be categorized as a broadcaster, multi-media publisher, or content hosting entity. The system operates entirely within standardized legal bounds for electronic directory layers globally in 2026.</p>
-        </div>
-    </div>
-
-    <div class="sz-standalone-page" id="sz-page-disclaimer">
-        <div class="sz-theater-canopy"><button class="sz-matrix-btn sz-close-page">← Dismiss Screen</button></div>
-        <div class="sz-page-scroller">
-            <h2 class="sz-legal-title">⚖️ Statutory Copyright Liability Shield & Intermediary Immunity</h2>
-            <p class="sz-legal-para"><strong>STATUTORY INTERMEDIARY DISCLOSURE:</strong> Nex Match explicitly declares absolute structural immunity from copyright claims, asset liability, or civil lawsuit petitions under the statutory frameworks of <strong>Title 17, United States Code, Section 512 (DMCA Safe Harbor Exemption for Network Routing Intermediaries)</strong> and matching global tech-neutral intermediary laws.</p>
+        <!-- MAIN SCROLLABLE WORKSPACE -->
+        <main class="sz-scroll-workspace">
             
-            <div class="sz-highlight-immunity">
-                ABSOLUTE LEGAL DIRECTIVE FOR ALL ENFORCEMENT CORPORATIONS: The entirety of the structured telemetry data, team brand monograms, and live stream mirrors present inside this interface are generated in real-time by an open, public database endpoint operated independently by third parties at https://streamed.pk. This site has zero financial, systemic, or physical control over those databases.
+            <!-- Categories Carousel (Now scrolls with content) -->
+            <div class="sz-carousel-sports" id="sz-categories-carousel">
+                <!-- Categories will be injected here dynamically -->
+            </div>
+
+            <!-- Status Pills (Now scrolls with content) -->
+            <div class="sz-matrix-status">
+                <div class="sz-status-pill active" data-lifecycle="all" tabindex="0">All Feeds <span class="sz-count-badge" id="sz-count-lifecycle-all">0</span></div>
+                <div class="sz-status-pill" data-lifecycle="live" tabindex="0">🔴 Live Now <span class="sz-count-badge" id="sz-count-lifecycle-live">0</span></div>
+                <div class="sz-status-pill" data-lifecycle="upcoming" tabindex="0">⏳ Upcoming <span class="sz-count-badge" id="sz-count-lifecycle-upcoming">0</span></div>
+                <div class="sz-status-pill" data-lifecycle="ended" tabindex="0">✓ Ended <span class="sz-count-badge" id="sz-count-lifecycle-ended">0</span></div>
+            </div>
+
+            <!-- Match Cards Grid -->
+            <div class="sz-matches-grid" id="sz-primary-render-grid"></div>
+        </main>
+
+        <!-- THEATER VIEW -->
+        <div id="sz-theater-route">
+            <div class="sz-theater-canopy">
+                <button class="sz-matrix-btn" id="sz-exit-theater" tabindex="0" style="font-size:15px; font-weight:800; color:var(--text-primary);">← Back</button>
             </div>
             
-            <p class="sz-legal-para">This software application contains <strong>absolute zero copy, storage, cache, or transmission data</strong> belonging to any broadcast network or rights holder on its networks. Consequently, Nex Match possesses <strong>zero capability or technological authority</strong> to execute asset takedowns or source modifications on remote, un-affiliated global infrastructures. All copyright enforcement requests or removal notifications must be filed directly against the domain administrators at <strong>streamed.pk</strong>. Any litigation, summons, or legal claim directed toward this client interface layer constitutes an incorrect execution of civil procedure and is automatically void under international communication data laws.</p>
-        </div>
-    </div>
+            <div class="sz-cinema-viewport">
+                <div id="sz-viewport-loader">
+                    <div class="sz-preplay-logo-3d">⚡</div>
+                    <div class="sz-preplay-brand-name">NEX MATCH ☄️</div>
+                </div>
+                <iframe id="sz-global-video-frame" allowfullscreen="true" allow="autoplay; encrypted-media"></iframe>
+            </div>
 
+            <div class="sz-pipeline-rack-fixed">
+                <div class="sz-ticker-marquee">
+                    <div class="sz-marquee-text">আমাদের ওয়েবসাইট আপডেট চলতেছে যেকোনো লিংক থেকে লাইভ ম্যাচ প্লে হতে 5 থেকে 10 সেকেন্ড অপেক্ষা করুন একবার প্লে হয়ে গেলে কোন বাফারিং ছাড়া প্লে হবে এটি আমাদের ওয়েবসাইটের রুলস এর জন্য এরকম 5 থেকে 10 সেকেন্ড ওয়েট করতে হয় এর জন্য আন্তরিকভাবে দুঃখিত ⚠️</div>
+                </div>
+
+                <div class="sz-rack-lbl"> Stream Links:</div>
+                <div class="sz-rack-btn-flow-horizontal" id="sz-stream-sources-box"></div>
+            </div>
+
+            <div class="sz-theater-scrollable-content">
+                <h4>More Events From This Category 🗂️</h4>
+                <div class="sz-matches-grid" id="sz-related-category-feed"></div>
+            </div>
+        </div>
+
+        <!-- ABOUT PAGE -->
+        <div class="sz-standalone-page" id="sz-page-about">
+            <div class="sz-theater-canopy"><button class="sz-matrix-btn sz-close-page" tabindex="0">← Dismiss Screen</button></div>
+            <div class="sz-page-scroller">
+                <h2 class="sz-legal-title">⚡ Platform Architecture & Technology Infrastructure</h2>
+                <p class="sz-legal-para">Nex Match operates as an automated metadata discovery network system. Our software framework specialize entirely in algorithmic query indexing, dynamic structure parsing, and client-side UI optimization of sports tracking streams globally available across international public networks.</p>
+                <div class="sz-highlight-shield">
+                    CRITICAL TECHNICAL STATUS: This platform is a purely algorithmic client application layer. We do not own, maintain, operate, rent, or lease any external streaming servers, cloud streaming architecture, or digital video distribution nodes. Our systems interact strictly with public API architectures to format data for human visualization.
+                </div>
+                <p class="sz-legal-para">The interface coordinates data streams programmatically requested by individual client requests. Under zero legal interpretation can Nex Match be categorized as a broadcaster, multi-media publisher, or content hosting entity. The system operates entirely within standardized legal bounds for electronic directory layers globally in 2026.</p>
+            </div>
+        </div>
+
+        <!-- DISCLAIMER PAGE -->
+        <div class="sz-standalone-page" id="sz-page-disclaimer">
+            <div class="sz-theater-canopy"><button class="sz-matrix-btn sz-close-page" tabindex="0">← Dismiss Screen</button></div>
+            <div class="sz-page-scroller">
+                <h2 class="sz-legal-title">⚖️ Statutory Copyright Liability Shield & Intermediary Immunity</h2>
+                <p class="sz-legal-para"><strong>STATUTORY INTERMEDIARY DISCLOSURE:</strong> Nex Match explicitly declares absolute structural immunity from copyright claims, asset liability, or civil lawsuit petitions under the statutory frameworks of <strong>Title 17, United States Code, Section 512 (DMCA Safe Harbor Exemption for Network Routing Intermediaries)</strong> and matching global tech-neutral intermediary laws.</p>
+                
+                <div class="sz-highlight-immunity">
+                    ABSOLUTE LEGAL DIRECTIVE FOR ALL ENFORCEMENT CORPORATIONS: The entirety of the structured telemetry data, team brand monograms, and live stream mirrors present inside this interface are generated in real-time by an open, public database endpoint operated independently by third parties at https://streamed.pk. This site has zero financial, systemic, or physical control over those databases.
+                </div>
+                
+                <p class="sz-legal-para">This software application contains <strong>absolute zero copy, storage, cache, or transmission data</strong> belonging to any broadcast network or rights holder on its networks. Consequently, Nex Match possesses <strong>zero capability or technological authority</strong> to execute asset takedowns or source modifications on remote, un-affiliated global infrastructures. All copyright enforcement requests or removal notifications must be filed directly against the domain administrators at <strong>streamed.pk</strong>. Any litigation, summons, or legal claim directed toward this client interface layer constitutes an incorrect execution of civil procedure and is automatically void under international communication data laws.</p>
+            </div>
+        </div>
+
+    </div> <!-- End Content Wrapper -->
+
+    <!-- COMPLIANCE MODAL -->
     <div id="sz-compliance-sheet">
         <div class="sz-sheet-panel">
-            <div class="sz-sheet-row" id="sz-trigger-about">ℹ️ About US</div>
-            <div class="sz-sheet-row" id="sz-trigger-disclaimer">⚠️ Disclaimer (DMCA)</div>
-            <div class="sz-sheet-row" id="sz-sheet-close" style="color:var(--neon-pink); text-align:center; margin-top:10px; border:none; font-weight:900;">⬅️ Back</div>
+            <div class="sz-sheet-row" id="sz-trigger-about" tabindex="0">ℹ️ About US</div>
+            <div class="sz-sheet-row" id="sz-trigger-disclaimer" tabindex="0">⚠️ Disclaimer (DMCA)</div>
+            <div class="sz-sheet-row" id="sz-sheet-close" tabindex="0" style="color:var(--neon-pink); text-align:center; margin-top:10px; border:none; font-weight:900;">⬅️ Back</div>
         </div>
     </div>
 
+    <!-- FOOTER (Always Visible & Fixed) -->
     <footer class="sz-platform-footer">
         Copyright &copy; 2026 Nex Match.</span>
         <span>Not affiliated with any official broadcasters. Data provided by public API networks.</span>
@@ -711,6 +803,7 @@
         const szStreamRackBox = document.getElementById("sz-stream-sources-box");
         const szRelatedStreamsContainer = document.getElementById("sz-related-category-feed");
         const szViewportLoader = document.getElementById("sz-viewport-loader");
+        const szMainWorkspace = document.querySelector('.sz-scroll-workspace');
 
         // ANTI-INSPECT SYSTEM
         (function injectArmoredShields() {
@@ -801,6 +894,7 @@
             const allPill = document.createElement("div");
             allPill.className = "sz-sport-pill active";
             allPill.setAttribute("data-category", "all");
+            allPill.setAttribute("tabindex", "0");
             allPill.innerHTML = `<span>🌐</span> All Sports <span class="sz-count-badge" id="sz-count-all">0</span>`;
             
             allPill.addEventListener("click", async () => {
@@ -816,6 +910,7 @@
                 const pill = document.createElement("div");
                 pill.className = "sz-sport-pill";
                 pill.setAttribute("data-category", sport.id);
+                pill.setAttribute("tabindex", "0");
                 
                 const logo = CATEGORY_LOGO_MAP[sport.id.toLowerCase()] || "🏆";
                 pill.innerHTML = `<span>${logo}</span> ${sport.name} <span class="sz-count-badge" id="sz-count-${sport.id}">0</span>`;
@@ -922,9 +1017,10 @@
             hours = hours ? hours : 12; 
             const strTime = hours.toString().padStart(2, '0') + ':' + minutes + ' ' + ampm;
             
-            return `📅 ${dayName}, ${dateNum} ${monthName} ${year}, <span>${strTime}</span> (BST)`;
+            return `${dateNum} ${monthName} ${year}, ${strTime}`;
         }
 
+        // UPDATED COMPACT CARD DESIGN WITH 3D BADGES
         function populateGridInterfaceNodes(matchesList, targetDOMNode, isRelatedGrid = false) {
             targetDOMNode.innerHTML = "";
             if (matchesList.length === 0) {
@@ -949,11 +1045,6 @@
                     awayGraphicHTML = `<img class="sz-asset-logo" src="${API_ENDPOINT_ROOT}/images/badge/${match.teams.away.badge}.webp" onerror="this.outerHTML='<div class=\'sz-avatar-monogram\'>${aLetter}</div>'" loading="lazy">`;
                 }
 
-                const epochNow = Date.now();
-                let pillText = "Upcoming"; let pillClass = "sz-tag-upcoming";
-                if (epochNow > (match.date + 7200000)) { pillText = "Ended"; pillClass = "sz-tag-ended"; }
-                else if (epochNow >= match.date) { pillText = "🔴 LIVE"; pillClass = "sz-tag-live"; }
-
                 const categoryClean = (match.category || "").toLowerCase();
                 const homeClean = hName.toLowerCase();
                 const awayClean = aName.toLowerCase();
@@ -965,18 +1056,21 @@
                     isHighTierMatch = FOOTBALL_TOP30.some(team => homeClean.includes(team)) || FOOTBALL_TOP30.some(team => awayClean.includes(team));
                 }
 
+                // 3D ANIMATED BADGES
                 const dynamicBadgeHTML = isHighTierMatch ? 
                     `<div class="sz-conditional-badge sz-badge-hot">HOT 🔥 MATCH</div>` : 
-                    `<div class="sz-conditional-badge sz-badge-next">NEXT UP</div>`;
+                    `<div class="sz-conditional-badge sz-badge-next">NEXT MATCH</div>`;
 
                 const localTimeHTML = getBangladeshTime(match.date);
 
                 const cardNode = document.createElement("div");
                 cardNode.className = "sz-match-card";
+                cardNode.setAttribute("tabindex", "0"); // For TV Remote Focus
+                
+                // Updated HTML Structure matching the image
                 cardNode.innerHTML = `
                     <div class="sz-card-topline">
-                        <span>${match.category}</span>
-                        <span class="sz-badge-tag ${pillClass}">${pillText}</span>
+                        🏆 ${match.category}
                     </div>
                     <div class="sz-team-alignment">
                         <div class="sz-team-node">
@@ -984,21 +1078,21 @@
                             <div class="sz-team-title">${hName}</div>
                         </div>
                         <div class="sz-center-core">
-                            <div class="sz-vs-lbl">VS</div>
                             <div class="sz-lifecycle-chronometer" data-target="${match.date}">00:00:00</div>
+                            <div class="sz-local-time-wrap">${localTimeHTML}</div>
                         </div>
-                        <div class="sz-team-node">
+                        <div class="sz-team-node right-team">
                             ${awayGraphicHTML}
                             <div class="sz-team-title">${aName}</div>
                         </div>
-                    </div>
-                    <div class="sz-local-time-wrap">
-                        ${localTimeHTML}
                     </div>
                     ${dynamicBadgeHTML}
                 `;
 
                 cardNode.addEventListener("click", () => triggerCinemaViewerMode(match));
+                // TV Remote Enter Key Support
+                cardNode.addEventListener("keydown", (e) => { if(e.key === "Enter") triggerCinemaViewerMode(match); });
+                
                 targetDOMNode.appendChild(cardNode);
             });
             
@@ -1014,13 +1108,15 @@
                 const variance = targetTimestamp - ticksNow;
 
                 if (ticksNow > (targetTimestamp + 7200000)) {
-                    clock.innerText = "ENDED"; clock.style.color = "var(--text-secondary)";
+                    clock.innerHTML = "ENDED"; 
+                    clock.style.color = "var(--text-secondary)";
                 } else if (ticksNow >= targetTimestamp) {
                     const activeDiff = ticksNow - targetTimestamp;
-                    clock.innerText = "LIVE: " + compileTimeTextFormat(activeDiff);
-                    clock.style.color = "var(--live-pulse)";
+                    // Only 🔴 is animated, LIVE and timer are static
+                    clock.innerHTML = `<span class="live-text-static">LIVE</span><span class="live-indicator-3d">🔴</span><span class="timer-text">${compileTimeTextFormat(activeDiff)}</span>`;
                 } else {
-                    clock.innerText = compileTimeTextFormat(variance); clock.style.color = "var(--neon-accent)";
+                    clock.innerHTML = compileTimeTextFormat(variance); 
+                    clock.style.color = "var(--neon-accent)";
                 }
             });
         }
@@ -1043,6 +1139,7 @@
 
         // PREPLAY HANDSHAKE IMPLEMENTATION
         async function triggerCinemaViewerMode(match) {
+            szMainWorkspace.style.display = "none"; // Hide main grid
             szTheaterRouteView.style.display = "flex";
             szStreamRackBox.innerHTML = `<div style="color:var(--text-secondary); font-size:12px;">Connecting link routes...</div>`;
             
@@ -1073,19 +1170,22 @@
                 gatheredStreamsPool.forEach((stream, idx) => {
                     const btn = document.createElement("button");
                     btn.className = "sz-transmission-trigger";
+                    btn.setAttribute("tabindex", "0");
                     if (idx === 0) {
                         btn.classList.add("active");
                         executeSecureIframeInjection(stream.embedUrl);
                     }
                     
-                    // ----- UPDATED: Show the EXACT full name provided by the API without the word "Mirror" -----
-                    let exactName = stream.name || stream.title || stream.channel;
-                    if (!exactName) {
+                    // ----- UPDATED: Show the EXACT FULL NAME provided by the API -----
+                    let exactName = stream.name || stream.title || stream.channel || stream.server || stream.quality || stream.language;
+                    
+                    if (!exactName || exactName.toString().trim() === "") {
                         exactName = stream.source.toUpperCase();
-                        if (stream.streamNo) exactName += ` ${stream.streamNo}`;
+                        if (stream.streamNo) exactName += ` - Link ${stream.streamNo}`;
                     }
+                    
                     btn.innerText = exactName;
-                    // --------------------------------------------------------------------------------------------
+                    // -----------------------------------------------------------------
                     
                     btn.addEventListener("click", () => {
                         document.querySelectorAll(".sz-transmission-trigger").forEach(b => b.classList.remove("active"));
@@ -1111,7 +1211,9 @@
         }
 
         document.getElementById("sz-exit-theater").addEventListener("click", () => {
-            szCinemaFrame.src = ""; szTheaterRouteView.style.display = "none";
+            szCinemaFrame.src = ""; 
+            szTheaterRouteView.style.display = "none";
+            szMainWorkspace.style.display = "block"; // Show main grid
         });
 
         // LOGO CLICK FLOW ACTION
@@ -1132,6 +1234,7 @@
             szCinemaFrame.src = "";
             szTheaterRouteView.style.display = "none";
             document.querySelectorAll(".sz-standalone-page").forEach(p => p.style.display = "none");
+            szMainWorkspace.style.display = "block"; // Show main grid
 
             await triggerDynamicMatchFetch("all");
             document.querySelector(".sz-scroll-workspace").scrollTop = 0;
@@ -1139,15 +1242,24 @@
 
         // INTERACTIVE UI MATRIX BINDINGS
         document.getElementById("sz-trigger-about").addEventListener("click", () => {
-            szComplianceModalWrapper.style.display = "none"; document.getElementById("sz-page-about").style.display = "flex";
+            szComplianceModalWrapper.style.display = "none"; 
+            szMainWorkspace.style.display = "none";
+            szTheaterRouteView.style.display = "none";
+            document.getElementById("sz-page-about").style.display = "flex";
         });
 
         document.getElementById("sz-trigger-disclaimer").addEventListener("click", () => {
-            szComplianceModalWrapper.style.display = "none"; document.getElementById("sz-page-disclaimer").style.display = "flex";
+            szComplianceModalWrapper.style.display = "none"; 
+            szMainWorkspace.style.display = "none";
+            szTheaterRouteView.style.display = "none";
+            document.getElementById("sz-page-disclaimer").style.display = "flex";
         });
 
         document.querySelectorAll(".sz-close-page").forEach(btn => {
-            btn.addEventListener("click", () => { document.querySelectorAll(".sz-standalone-page").forEach(p => p.style.display = "none"); });
+            btn.addEventListener("click", () => { 
+                document.querySelectorAll(".sz-standalone-page").forEach(p => p.style.display = "none"); 
+                szMainWorkspace.style.display = "block"; // Return to main grid
+            });
         });
 
         szSearchToggleBtn.addEventListener("click", () => {
@@ -1166,6 +1278,80 @@
 
         szComplianceToggleBtn.addEventListener("click", () => szComplianceModalWrapper.style.display = "flex");
         document.getElementById("sz-sheet-close").addEventListener("click", () => szComplianceModalWrapper.style.display = "none");
+
+        // ==========================================
+        // MOUSE DRAG SCROLL FOR CATEGORIES
+        // ==========================================
+        const slider = document.getElementById('sz-categories-carousel');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        slider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+            slider.style.cursor = 'grabbing';
+        });
+        slider.addEventListener('mouseleave', () => {
+            isDown = false;
+            slider.style.cursor = 'default';
+        });
+        slider.addEventListener('mouseup', () => {
+            isDown = false;
+            slider.style.cursor = 'default';
+        });
+        slider.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 2; // Scroll speed
+            slider.scrollLeft = scrollLeft - walk;
+        });
+
+        // ==========================================
+        // TV REMOTE / KEYBOARD NAVIGATION SYSTEM
+        // ==========================================
+        document.addEventListener('keydown', function(e) {
+            // Get all focusable elements (Cards, Buttons, Inputs)
+            const focusableElements = Array.from(document.querySelectorAll('.sz-match-card, .sz-sport-pill, .sz-status-pill, .sz-transmission-trigger, .sz-matrix-btn, input, #sz-root-reset-trigger, .sz-sheet-row'));
+            
+            // Filter out elements that are not currently visible
+            const visibleElements = focusableElements.filter(el => {
+                return !!(el.offsetWidth || el.offsetHeight || el.getClientRects().length);
+            });
+
+            const currentIndex = visibleElements.indexOf(document.activeElement);
+
+            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                e.preventDefault();
+                let nextIndex = currentIndex + 1;
+                if (nextIndex >= visibleElements.length) nextIndex = 0;
+                visibleElements[nextIndex].focus();
+                // Auto scroll into view for TV
+                visibleElements[nextIndex].scrollIntoView({ behavior: "smooth", block: "center" });
+            } 
+            else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                e.preventDefault();
+                let prevIndex = currentIndex - 1;
+                if (prevIndex < 0) prevIndex = visibleElements.length - 1;
+                visibleElements[prevIndex].focus();
+                // Auto scroll into view for TV
+                visibleElements[prevIndex].scrollIntoView({ behavior: "smooth", block: "center" });
+            }
+        });
+
+        // Add Enter key support for dynamically added focusable elements
+        const observer = new MutationObserver(() => {
+            document.querySelectorAll('.sz-sport-pill, .sz-status-pill, .sz-transmission-trigger, .sz-matrix-btn, .sz-sheet-row, #sz-root-reset-trigger').forEach(el => {
+                if(!el.hasAttribute('data-key-bound')) {
+                    el.setAttribute('data-key-bound', 'true');
+                    el.addEventListener("keydown", (e) => { if(e.key === "Enter") el.click(); });
+                }
+            });
+        });
+        observer.observe(document.body, { childList: true, subtree: true });
+
     </script>
 </body>
 </html>
